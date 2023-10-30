@@ -1,40 +1,41 @@
-def calculate_flames(name1, name2):
-    name1 = name1.lower().replace(" ", "")
-    name2 = name2.lower().replace(" ", "")
+import random
 
-    for char in name1:
-        if char in name2:
-            name1 = name1.replace(char,"", 1)
-            name2 = name2.replace(char,"", 1)
+def flames_game():
+    '''Welcome to Flames'''
+    n1 = input("Enter 1st Name : ").lower()
+    n2 = input("Enter 2nd Name : ").lower()
 
-    combined_name = name1 + name2
-    flames = "FLAMES"
+    #removing common char
 
-    while len(flames) > 1:
-        index = (len(combined_name) % len(flames)) - 1
-        if index >= 0:
-            flames = flames[:index] + flames[index + 1:]
-        else:
-            flames = flames[:len(flames) - 1]
+    remaining_chars=[]
+    for char in n1:
+        if char not in n2:
+            remaining_chars.append(char)
+    
+    for char in n2:
+        if char not in n1:
+            remaining_chars.append(char)
+    # print(remaining_chars)
+    
+    # Result list 
 
-    return flames
+    flames = ["Friends","Lovers","Affection","Marriage","Enemies","Siblings"]
+    index = 0
+    if index < 0  or index > len(flames):
+        index = 0
 
-def main():
-    print("Welcome to the FLAMES game!")
-    name1 = input("Enter the first name: ")
-    name2 = input("Enter the second name: ")
+    # removing from list 
+    char_to_remove = remaining_chars.pop(index)
 
-    result = calculate_flames(name1, name2)
+    # incrementing index 
+    index += 1
 
-    relationship = {
-        'F': 'Friends',
-        'L': 'Love',
-        'A': 'Affection',
-        'M': 'Marriage',
-        'E': 'Enemies',
-        'S': 'Siblings',
-    }
+#   # If the remaining_chars list is empty, return a default value.
+#     if len(remaining_chars) == 0:
+#         return flames[0]
 
-    print(f"Result: {relationship[result]}")
+  # Return the FLAMES result.
+    return flames[index],n1,n2
 
-main()
+flames_result,n1,n2 = flames_game()
+print(f" FLAMES for {n1} and {n2} the result is: {flames_result}")
