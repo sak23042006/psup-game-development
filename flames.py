@@ -30,9 +30,9 @@ def flames_game():
     # incrementing index 
     index += 1
 
-#   # If the remaining_chars list is empty, return a default value.
-#     if len(remaining_chars) == 0:
-#         return flames[0]
+  # If list is empty, return default value.
+    if len(remaining_chars) == 0:
+        return flames[0]
 
   # Return the FLAMES result.
     return flames[index],n1,n2
