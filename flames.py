@@ -7,14 +7,14 @@ def flames_game():
 
     # Removing common characters
     remaining_chars = list(set(n1) ^ set(n2))
-    print(remaining_chars)
+    # print(remaining_chars)
 
     # Result list
     flames = ["Friends", "Lovers", "Affection", "Marriage", "Enemies", "Siblings"]
 
     # Calc index based on the len of remaining_chars
     index = len(remaining_chars) % len(flames)
-    print(index)
+    # print(index)
 
     # Return FLAMES res.
     return flames[index], n1, n2
